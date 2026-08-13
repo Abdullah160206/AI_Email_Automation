@@ -1250,7 +1250,7 @@ def extract_conversations(folder, date_folder_cache, all_date_folders, sent_map,
             received_time = msg.ReceivedTime
             if received_time.tzinfo is not None:
                 received_time = received_time.replace(tzinfo=None)
-            if not PROCESS_ALL_INBOX_DATES and received_time.date() != target_date:
+            if received_time.date() != target_date:
                 continue
 
             if needs_move and check_promotion(msg.Subject, msg.Body):
