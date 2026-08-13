@@ -160,7 +160,7 @@ HOD_POPUP_BUSINESS_DAYS = int(os.environ.get("HOD_POPUP_BUSINESS_DAYS", "2"))
 
 #SET_N_DAYS = int(os.environ.get("SET_N_DAYS", "8"))   #By default I set it to 8  #I set everything to this #Not use anywhere as everything has its own value
 
-PROJECT_DIRECTORY = r"C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\firstproject\Outlook_files" #Diectory for Excel Files
+PROJECT_DIRECTORY = r"C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles" #Diectory for Excel Files
 
 OL_FOLDER_INBOX = 6
 
@@ -168,6 +168,20 @@ outlook = win32com.client.Dispatch("Outlook.Application")
 
 PERSONAL_EMAIL = outlook.Session.Accounts.Item(1).SmtpAddress
 
+
+import logging
+
+os.makedirs(PROJECT_DIRECTORY, exist_ok=True)
+LOG_FILE = os.path.join(PROJECT_DIRECTORY, "email_automation.log")
+
+logging.basicConfig(
+    filename=LOG_FILE,
+    filemode="a",   # append, never overwrite - keeps history across runs
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger("email_automation")
 
 
 
@@ -340,13 +354,13 @@ QUOTE_MARKERS = ["-----Original Message-----", "\nFrom:", "\r\nFrom:", "\nOn ", 
 def refresh_outlook():
     outlook = win32com.client.Dispatch("Outlook.Application")
     namespace = outlook.GetNamespace("MAPI")
-    print("Refreshing Outlook...")
-    print(f"Using Email : {PERSONAL_EMAIL}")  # Print the email address of the specific email
-    print(f"HOD Email   : {HOD_EMAIL}")       #Print the HOD Email
+    logger.info("Refreshing Outlook...")
+    logger.info(f"Using Email : {PERSONAL_EMAIL}")  # logger.info the email address of the specific email
+    logger.info(f"HOD Email   : {HOD_EMAIL}")       #logger.info the HOD Email
 
     namespace.SendAndReceive(True)
     time.sleep(2)
-    print("Refresh Complete.")
+    logger.info("Refresh Complete.")
 
 
 import win32com.client
@@ -366,9 +380,9 @@ def move_all_spam_to_inbox():
         try:
             items.Item(i).Move(inbox)
         except Exception as e:
-            print(f"Failed to move email: {e}")
+            logger.info(f"Failed to move email: {e}")
 
-    print("All Spam/Junk emails moved to Inbox.")
+    logger.info("All Spam/Junk emails moved to Inbox.")
 
 def check_promotion(subject, body):
     text = (subject or "").lower() + (body or "").lower()
@@ -432,7 +446,7 @@ def get_outlook_folder(folder_name="Inbox"):
         if folder.Name.lower() == folder_name.lower():
             return folder
 
-    print(f"Folder '{folder_name}' not found under Inbox. Using Inbox instead.")
+    logger.info(f"Folder '{folder_name}' not found under Inbox. Using Inbox instead.")
     return inbox
 
 
@@ -452,7 +466,7 @@ def get_or_create_subfolder(parent_folder, name):
     for f in parent_folder.Folders:
         if f.Name == name:
             return f
-    print(f"Creating folder '{name}' under '{parent_folder.Name}'...")
+    logger.info(f"Creating folder '{name}' under '{parent_folder.Name}'...")
     return parent_folder.Folders.Add(name)
 
 
@@ -499,7 +513,7 @@ def delete_old_date_folders(inbox_folder, days):
             continue
         if folder_date <= cutoff:
             age_days = (datetime.now().date() - folder_date).days
-            print(f"Deleting folder '{f.Name}' ({age_days} days old)")
+            logger.info(f"Deleting folder '{f.Name}' ({age_days} days old)")
             f.Delete()
             deleted.append(f.Name)
     return deleted
@@ -723,7 +737,7 @@ def mark_conversation_resolved(msg):
             msg.Categories = f"{existing}; {RESOLVED_CATEGORY_TAG}" if existing else RESOLVED_CATEGORY_TAG
             msg.Save()
     except Exception as e:
-        print(f"Could not tag conversation as resolved: {e}")
+        logger.info(f"Could not tag conversation as resolved: {e}")
 
 
 def build_persistently_resolved_conversations(customer_map):
@@ -980,10 +994,10 @@ def send_followup_to_customer(conv_id, customer_email, customer_name, subject, l
         mail.HTMLBody = f"<p>{body_text.replace(chr(10), '<br>')}</p>"
         mail.Categories = f"FollowupSent|{conv_id}|{ts_tag}"
         mail.Send()
-        print(f"Follow-up nudge sent to {customer_email} for '{subject}'")
+        logger.info(f"Follow-up nudge sent to {customer_email} for '{subject}'")
         return True
     except Exception as e:
-        print(f"Could not send follow-up nudge for '{subject}': {e}")
+        logger.info(f"Could not send follow-up nudge for '{subject}': {e}")
         return False
 
 
@@ -1031,10 +1045,10 @@ def send_hod_overdue_popup(conv_id, subject, sender_name, sender_email,
         )
         mail.Categories = f"{HOD_POPUP_TAG_PREFIX}{conv_id}|{ts_tag}"
         mail.Send()
-        print(f"HOD overdue alert sent for '{subject}' ({business_days_waited} working days)")
+        logger.info(f"HOD overdue alert sent for '{subject}' ({business_days_waited} working days)")
         return True
     except Exception as e:
-        print(f"Could not send HOD overdue alert for '{subject}': {e}")
+        logger.info(f"Could not send HOD overdue alert for '{subject}': {e}")
         return False
 
 
@@ -1084,10 +1098,10 @@ def send_hod_escalation_email(customer_conv_id, subject, sender_name,
             f"{message_blocks}"
         )
         mail.Send()
-        print(f"Escalation email sent for {customer_conv_id}")
+        logger.info(f"Escalation email sent for {customer_conv_id}")
         return True
     except Exception as e:
-        print(f"FAILED to send escalation email for {customer_conv_id}: {e}")
+        logger.info(f"FAILED to send escalation email for {customer_conv_id}: {e}")
         return False
 
 
@@ -1097,17 +1111,17 @@ def create_draft_reply(msg, suggested_reply, existing_draft_conversations):
     try:
         conv_id = msg.ConversationID
         if conv_id and conv_id in existing_draft_conversations:
-            print(f"Draft already exists for '{msg.Subject}' - skipping duplicate.")
+            logger.info(f"Draft already exists for '{msg.Subject}' - skipping duplicate.")
             return
         reply = msg.Reply()
         formatted_reply = suggested_reply.replace("\n", "<br>")
         reply.HTMLBody = f"<p>{formatted_reply}</p><hr>" + reply.HTMLBody
         reply.Save()
-        print(f"Draft created for '{msg.Subject}'")
+        logger.info(f"Draft created for '{msg.Subject}'")
         if conv_id:
             existing_draft_conversations.add(conv_id)
     except Exception as e:
-        print(f"Could not create draft for '{msg.Subject}': {e}")
+        logger.info(f"Could not create draft for '{msg.Subject}': {e}")
 
 
 # Analyze complaint text from URGENT KEYWORDS and category keywords, used to build a priority
@@ -1146,16 +1160,16 @@ def move_to_target_folder(msg, target_folder):
     try:
         msg.Move(target_folder)
     except Exception as e:
-        print(f"Could not move '{msg.Subject}' to '{target_folder.Name}': {e}")
+        logger.info(f"Could not move '{msg.Subject}' to '{target_folder.Name}': {e}")
 
 #Move to target Folder
 def move_to_internal_folder(msg, internal_folder):
     """Moves the email into the Internal_Mails folder (removes it from wherever it currently is)."""
     try:
         msg.Move(internal_folder)
-        print(f"Moved '{msg.Subject}' to '{internal_folder.Name}'")
+        logger.info(f"Moved '{msg.Subject}' to '{internal_folder.Name}'")
     except Exception as e:
-        print(f"Could not move '{msg.Subject}': {e}")
+        logger.info(f"Could not move '{msg.Subject}': {e}")
 
 def build_conversation_pairs(receiving_times, response_times_for_conv):
     receiving_times = sorted(receiving_times)
@@ -1295,7 +1309,7 @@ def extract_conversations(folder, date_folder_cache, all_date_folders, sent_map,
                 continue
 
             if needs_move and check_promotion(msg.Subject, msg.Body):
-                print(f"Moving promotional email to Promotions: '{msg.Subject}'")
+                logger.info(f"Moving promotional email to Promotions: '{msg.Subject}'")
                 promotion_folder = setup_promotions_folder(folder)
                 move_to_target_folder(msg, promotion_folder)
                 continue
@@ -1316,10 +1330,13 @@ def extract_conversations(folder, date_folder_cache, all_date_folders, sent_map,
             if limit and processed_count >= limit:
                 break
         except Exception as e:
-            print(f"Skipped one email due to error: {e}")
+            logger.info(f"Skipped one email due to error: {e}")
             continue
 
     rows = []
+    logger.info(f"[extract_conversations] target_date={target_date} | "
+          f"messages scanned={processed_count} | "
+          f"distinct conversations={len(conversations)}")
     for conv_id, data in conversations.items():
         msgs = [m for m, _ in data["messages"]]
         receiving_times = data["receiving_times"]
@@ -1371,21 +1388,24 @@ def extract_conversations(folder, date_folder_cache, all_date_folders, sent_map,
         # the same way a closed ticket doesn't keep auto-replying just
         # because the customer's thread got one more message.
         # if conv_already_resolved:
-        #     #print(f"Skipping auto-draft for '{subject}' - conversation already marked Resolve.")
-        #     print()
+        #     #logger.info(f"Skipping auto-draft for '{subject}' - conversation already marked Resolve.")
+        #     logger.info()
 
         if is_resolved and not conv_already_resolved and IS_CUSTOMER_CARE:
             suggested_reply = generate_suggested_reply("Complain_Resolve", latest_msg.SenderName)
+            logger.info(f"[conv {conv_id[:12]}...] -> resolve-thank-you draft (was open, now resolved)")
             create_draft_reply(latest_msg, suggested_reply, existing_draft_conversations)
             mark_conversation_resolved(latest_msg)
 
         
         if not already_replied and not status == "Resolve" and IS_CUSTOMER_CARE:
             if not has_number :
+                logger.info(f"[conv {conv_id[:12]}...] -> missing-number draft")
                 suggested_reply = generate_suggested_reply("Missing_Num", latest_msg.SenderName)
                 create_draft_reply(latest_msg, suggested_reply, existing_draft_conversations)
             
             elif still_unanswered:
+                logger.info(f"[conv {conv_id[:12]}...] -> category reply draft ({category})")
                 suggested_reply = generate_suggested_reply(category, latest_msg.SenderName)
                 create_draft_reply(latest_msg, suggested_reply, existing_draft_conversations)
 
@@ -1411,6 +1431,7 @@ def extract_conversations(folder, date_folder_cache, all_date_folders, sent_map,
             and status == "Open" 
             and not already_escalated
             and IS_CUSTOMER_CARE):
+            logger.info(f"[conv {conv_id[:12]}...] Trigger A fired: {consecutive_unanswered} consecutive unanswered")
             sent_ok = send_hod_escalation_email(
                 conv_id, subject, latest_msg.SenderName,
                 get_sender_email(latest_msg), full_pairs, full_messages, outlook_app
@@ -1429,6 +1450,8 @@ def extract_conversations(folder, date_folder_cache, all_date_folders, sent_map,
                 and not already_escalated
                 and not is_sent
                 and IS_CUSTOMER_CARE):
+            logger.info(f"[conv {conv_id[:12]}...] Trigger B fired: "
+                  f"total={full_total_received} unresolved_backlog={unresolved_backlog}")
 
             sent_ok = send_hod_escalation_email(
                 conv_id, subject, latest_msg.SenderName,
@@ -1482,7 +1505,7 @@ def write_to_excel(rows, output_path="emails_export.xlsx"):
     Receiving Time N / Response Time N column pairs based on whichever
     conversation had the most exchanges today."""
     if not rows:
-        print("No conversations to write.")
+        logger.info("No conversations to write.")
         return
 
     priority_order = {"High": 0, "Medium": 1, "Low": 2}
@@ -1557,7 +1580,7 @@ def write_to_excel(rows, output_path="emails_export.xlsx"):
         ws.column_dimensions[get_column_letter(col_num)].width = min(max_length + 2, 40)
 
     wb.save(output_path)
-    print(f"Exported {len(rows)} conversations to '{output_path}' ({max_pairs} exchange pair(s) wide)")
+    logger.info(f"Exported {len(rows)} conversations to '{output_path}' ({max_pairs} exchange pair(s) wide)")
 
 
 
@@ -1578,7 +1601,7 @@ def find_date_folders_last_n_days(inbox_folder, days):
 def extract_conversations_last_n_days(inbox_folder, days, sent_map, limit=None):
     date_folders = find_date_folders_last_n_days(inbox_folder, days=days)
     if not date_folders:
-        print(f"No date folders found in the last {days} days.")
+        logger.info(f"No date folders found in the last {days} days.")
         return []
 
     conversations = {}
@@ -1607,7 +1630,7 @@ def extract_conversations_last_n_days(inbox_folder, days, sent_map, limit=None):
                 if limit and processed_count >= limit:
                     break
             except Exception as e:
-                print(f"Skipped one email due to error: {e}")
+                logger.info(f"Skipped one email due to error: {e}")
                 continue
 
     rows = []
@@ -1689,7 +1712,7 @@ def check_and_process_internal_mails(folder, sent_map):
             conversations[conv_id]["messages"].append((msg, needs_move))
             conversations[conv_id]["receiving_times"].append(received_time)
         except Exception as e:
-            print(f"Skipped one email while scanning internal mails: {e}")
+            logger.info(f"Skipped one email while scanning internal mails: {e}")
             continue
 
     rows = []
@@ -1737,7 +1760,7 @@ def check_and_process_internal_mails(folder, sent_map):
         for msg, _needs_move in data["messages"]:
             move_to_internal_folder(msg, internal_folder)
 
-    print(f"Internal mails processed: {len(rows)} conversation(s) copied to 'Internal_Mails'")
+    logger.info(f"Internal mails processed: {len(rows)} conversation(s) copied to 'Internal_Mails'")
     return rows
 
 
@@ -1783,7 +1806,7 @@ def check_and_notify_hod_overdue(folder, customer_map, sent_map, hod_popup_sent_
         if sent_ok:
             sent_count += 1
 
-    print(f"HOD overdue alerts sent: {sent_count}")
+    logger.info(f"HOD overdue alerts sent: {sent_count}")
     return sent_count
 
 
@@ -1838,7 +1861,7 @@ def check_and_send_followup_nudges(folder, customer_map, sent_map, followup_sent
 
         customer_email = latest_customer_msg.get("sender_email", "")
         if not customer_email or "@" not in customer_email:
-            print(f"Skipping follow-up for {conv_id}: no valid customer email found.")
+            logger.info(f"Skipping follow-up for {conv_id}: no valid customer email found.")
             continue
 
         sent_ok = send_followup_to_customer(
@@ -1848,11 +1871,14 @@ def check_and_send_followup_nudges(folder, customer_map, sent_map, followup_sent
         if sent_ok:
             sent_count += 1
 
-    print(f"Follow-up nudges sent: {sent_count}")
+    logger.info(f"Follow-up nudges sent: {sent_count}")
     return sent_count
 
 
 if __name__ == "__main__":
+    logger.info("=" * 120)
+    logger.info("Run started")
+
     move_all_spam_to_inbox()
     safe_email = (
         PERSONAL_EMAIL
@@ -1861,6 +1887,15 @@ if __name__ == "__main__":
     )
     target_date = get_target_date().date()
     target_date_str = target_date.strftime("%Y%m%d")
+
+    logger.info("-" * 20)
+    logger.info(f"RUN CONFIG  |  Target date: {target_date}  (DAYS_OFFSET={DAYS_OFFSET})")
+    logger.info(f"OUTLOOK_FOLDER={OUTLOOK_FOLDER_NAME}  IS_CUSTOMER_CARE={IS_CUSTOMER_CARE}")
+    logger.info(f"ESCALATION_THRESHOLD={ESCALATION_THRESHOLD}  HOD_POPUP_BUSINESS_DAYS={HOD_POPUP_BUSINESS_DAYS}")
+    logger.info(f"FOLLOWUP_DAYS_THRESHOLD={FOLLOWUP_DAYS_THRESHOLD}  DELETE_OLDER_THAN_DAYS={DELETE_OLDER_THAN_DAYS}")
+    logger.info(f"INTERNAL_MAIL_DOMAINS={INTERNAL_MAIL_DOMAINS}")
+    logger.info("-" * 20)
+
 
     refresh_outlook()  # fix #7: only runs when this file is executed directly
 
@@ -1897,7 +1932,7 @@ if __name__ == "__main__":
         build_existing_draft_conversations(outlook_namespace) if IS_CUSTOMER_CARE else set()
     )
 
-    print(f"Reading emails from '{folder.Name}' for Date : {target_date}...")
+    logger.info(f"Reading emails from '{folder.Name}' for Date : {target_date}...")
     rows = extract_conversations(
         folder, date_folder_cache, all_date_folders, sent_map, customer_map,
         seen_entry_ids, escalated_conversations, existing_draft_conversations,
@@ -1920,5 +1955,7 @@ if __name__ == "__main__":
     if IS_CUSTOMER_CARE:
         check_and_send_followup_nudges(folder, customer_map, sent_map, followup_sent_map)
         check_and_notify_hod_overdue(folder, customer_map, sent_map, hod_popup_sent_map)
+
+    print("Code Run Successfully Check Log & Excel File")
 
     
