@@ -112,9 +112,8 @@ DATE_FOLDER_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 #2nd var
 #2nd var - whole domains only, no "@", e.g. "abc.com.pk"
 INTERNAL_MAIL_DOMAINS = [
-    "changan.com.pk",
-    "changanmultan.com",
-    "changanstallion.com",
+    "abc.com.pk",
+    "microsoft.com"
     # add as many domains as needed
 ]
 
@@ -215,7 +214,7 @@ def build_hod_popup_sent_map(outlook_namespace):
                 if len(parts) == 3:
                     _, conv_id, ts = parts
                     popup_map.setdefault(conv_id, set()).add(ts)
-        except Exception:
+        except Exception:   
             continue
     return popup_map
 
@@ -467,13 +466,6 @@ def setup_internal_mails_folder(inbox_folder):
     """Creates (or reuses) a 'Internal_Mails' folder directly under Inbox."""
     return get_or_create_subfolder(inbox_folder, "Internal_Mails")
 
-# ------------------------
-def setup_date_folder(inbox_folder):
-    """Creates (or reuses) the target date's folder under Inbox, based on DAYS_OFFSET."""
-    target_date_str = get_target_date().strftime("%Y-%m-%d")
-    return get_or_create_subfolder(inbox_folder, target_date_str)
-# ---------------------------
-
 
 
 
@@ -504,40 +496,6 @@ def delete_old_date_folders(inbox_folder, days):
             f.Delete()
             deleted.append(f.Name)
     return deleted
-
-# Send all emails to their base date
-def build_conversation_folder_map(date_folders):
-    """
-    Scans every existing date folder and builds a mapping:
-    ConversationID -> the EARLIEST date folder that conversation already
-    lives in. Used so that if a customer replies again on a later day,
-    the new message gets merged into the folder of their ORIGINAL
-    message instead of creating a new entry in today's folder.
-    """
-    conv_folder_map = {}  # conv_id -> (folder, date_str)
-    for f in date_folders:
-        try:
-            for m in f.Items:
-                if check_outlook_item(m.Class):
-                    continue
-                conv_id = m.ConversationID
-                if not conv_id:
-                    continue
-                existing = conv_folder_map.get(conv_id)
-                if existing is None or f.Name < existing[1]:
-                    conv_folder_map[conv_id] = (f, f.Name)
-        except Exception:
-            continue
-    return {conv_id: folder for conv_id, (folder, _date) in conv_folder_map.items()}
-
-
-def resolve_target_folder(conv_id, fallback_folder, conversation_folder_map):
-    """Returns the conversation's ORIGINAL folder if one exists, otherwise
-    the given fallback (the date folder matching this conversation's own
-    messages when it has no prior history anywhere)."""
-    if conv_id and conv_id in conversation_folder_map:
-        return conversation_folder_map[conv_id]
-    return fallback_folder
 
 
 def compute_episode_dates(full_messages):
