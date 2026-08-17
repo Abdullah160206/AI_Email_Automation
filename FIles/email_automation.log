@@ -96,3 +96,361 @@
 2026-08-13 14:33:34 [INFO] Exported 9 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260813.xlsx' (7 exchange pair(s) wide)
 2026-08-13 14:33:34 [INFO] Follow-up nudges sent: 0
 2026-08-13 14:33:34 [INFO] HOD overdue alerts sent: 0
+2026-08-17 07:39:50 [INFO] ========================================================================================================================
+2026-08-17 07:39:50 [INFO] Run started
+2026-08-17 07:39:50 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 07:39:50 [INFO] --------------------
+2026-08-17 07:39:50 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 07:39:50 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 07:39:50 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 07:39:50 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 07:39:50 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 07:39:50 [INFO] --------------------
+2026-08-17 07:39:50 [INFO] Refreshing Outlook...
+2026-08-17 07:39:50 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 07:39:50 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 07:39:52 [INFO] Refresh Complete.
+2026-08-17 07:40:13 [INFO] ========================================================================================================================
+2026-08-17 07:40:13 [INFO] Run started
+2026-08-17 07:40:13 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 07:40:13 [INFO] --------------------
+2026-08-17 07:40:13 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 07:40:13 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 07:40:13 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 07:40:13 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 07:40:13 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 07:40:13 [INFO] --------------------
+2026-08-17 07:40:13 [INFO] Refreshing Outlook...
+2026-08-17 07:40:13 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 07:40:13 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 07:40:15 [INFO] Refresh Complete.
+2026-08-17 07:41:01 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 07:41:01 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 07:41:01 [INFO] Creating folder '2026-08-14' under 'Inbox'...
+2026-08-17 07:41:01 [INFO] Creating folder '2026-08-16' under 'Inbox'...
+2026-08-17 07:41:01 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=24 | distinct conversations=9
+2026-08-17 07:41:01 [INFO] [conv D15995D0F6AC...] -> category reply draft (warranty)
+2026-08-17 07:41:02 [INFO] Draft created for 'Re: testing : 30'
+2026-08-17 07:41:02 [INFO] [conv 3D8F4A0E91B5...] -> category reply draft (general)
+2026-08-17 07:41:02 [INFO] Draft created for 'testing ; 30'
+2026-08-17 07:41:02 [INFO] [conv 8C91334E7AC0...] -> category reply draft (general)
+2026-08-17 07:41:02 [INFO] Draft created for 'Testing on 14-08-2026'
+2026-08-17 07:41:02 [INFO] [conv 164A417DB587...] -> category reply draft (general)
+2026-08-17 07:41:02 [INFO] Draft created for 'Testing: 20'
+2026-08-17 07:41:02 [INFO] No conversations to write.
+2026-08-17 07:41:03 [INFO] Exported 13 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 07:41:03 [INFO] Follow-up nudge sent to launchtv01012001@gmail.com for 'Re: Test5: Check Mechanical Issue'
+2026-08-17 07:41:03 [INFO] Follow-up nudge sent to launchtv01012001@gmail.com for 'Re: Test6: Testing the Service Delay Draft'
+2026-08-17 07:41:03 [INFO] Follow-up nudges sent: 2
+2026-08-17 07:41:03 [INFO] HOD overdue alerts sent: 0
+2026-08-17 07:51:17 [INFO] ========================================================================================================================
+2026-08-17 07:51:17 [INFO] Run started
+2026-08-17 07:51:17 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 07:51:17 [INFO] --------------------
+2026-08-17 07:51:17 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 07:51:17 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 07:51:17 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 07:51:17 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 07:51:17 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 07:51:17 [INFO] --------------------
+2026-08-17 07:51:17 [INFO] Refreshing Outlook...
+2026-08-17 07:51:17 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 07:51:17 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 07:51:19 [INFO] Refresh Complete.
+2026-08-17 07:52:15 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 07:52:15 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 07:52:15 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 07:52:16 [INFO] No conversations to write.
+2026-08-17 07:52:17 [INFO] Exported 13 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 07:52:17 [INFO] Follow-up nudges sent: 0
+2026-08-17 07:52:17 [INFO] HOD overdue alerts sent: 0
+2026-08-17 08:34:27 [INFO] ========================================================================================================================
+2026-08-17 08:34:27 [INFO] Run started
+2026-08-17 08:34:27 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 08:34:27 [INFO] --------------------
+2026-08-17 08:34:27 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 08:34:27 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 08:34:27 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 08:34:27 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 08:34:27 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 08:34:27 [INFO] --------------------
+2026-08-17 08:34:27 [INFO] Refreshing Outlook...
+2026-08-17 08:34:27 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 08:34:27 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 08:34:29 [INFO] Refresh Complete.
+2026-08-17 08:35:52 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 08:35:52 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 08:35:52 [INFO] Creating folder '2026-08-17' under 'Inbox'...
+2026-08-17 08:35:53 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=26 | distinct conversations=12
+2026-08-17 08:35:53 [INFO] [conv BFF3408341D7...] -> resolve-thank-you draft (was open, now resolved)
+2026-08-17 08:35:54 [INFO] Draft created for 'Re: Following up: Re: Test5: Check Mechanical Issue'
+2026-08-17 08:35:55 [INFO] [conv 2F664BDE03C7...] -> resolve-thank-you draft (was open, now resolved)
+2026-08-17 08:35:55 [INFO] Draft created for 'Re: Following up: Re: Test6: Testing the Service Delay Draft'
+2026-08-17 08:35:55 [INFO] [conv 88DC3BEC6CF7...] -> category reply draft (service_delay)
+2026-08-17 08:35:55 [INFO] Draft created for 'Re: Test 7: Testing Contact Missing template'
+2026-08-17 08:35:55 [INFO] [conv 164A417DB587...] -> resolve-thank-you draft (was open, now resolved)
+2026-08-17 08:35:56 [INFO] Draft created for 'Re: Testing: 20'
+2026-08-17 08:35:56 [INFO] [conv 8C91334E7AC0...] -> resolve-thank-you draft (was open, now resolved)
+2026-08-17 08:35:57 [INFO] Draft created for 'Re: Testing on 14-08-2026'
+2026-08-17 08:35:58 [INFO] [conv 3D8F4A0E91B5...] -> resolve-thank-you draft (was open, now resolved)
+2026-08-17 08:35:58 [INFO] Draft created for 'Re: testing ; 30'
+2026-08-17 08:35:59 [INFO] [conv D15995D0F6AC...] -> category reply draft (warranty)
+2026-08-17 08:35:59 [INFO] Draft created for 'RE: testing : 30'
+2026-08-17 08:36:01 [INFO] Exported 7 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_20260817.xlsx' (1 exchange pair(s) wide)
+2026-08-17 08:36:04 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 08:36:04 [INFO] Follow-up nudges sent: 0
+2026-08-17 08:36:04 [INFO] HOD overdue alerts sent: 0
+2026-08-17 09:29:39 [INFO] ========================================================================================================================
+2026-08-17 09:29:39 [INFO] Run started
+2026-08-17 09:29:39 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 09:29:39 [INFO] --------------------
+2026-08-17 09:29:39 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 09:29:39 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 09:29:39 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 09:29:39 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 09:29:39 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 09:29:39 [INFO] --------------------
+2026-08-17 09:29:39 [INFO] Refreshing Outlook...
+2026-08-17 09:29:39 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 09:29:39 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 09:29:41 [INFO] Refresh Complete.
+2026-08-17 09:30:24 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 09:30:24 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 09:30:24 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 09:30:24 [INFO] No conversations to write.
+2026-08-17 09:30:25 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 09:30:25 [INFO] Follow-up nudges sent: 0
+2026-08-17 09:30:25 [INFO] HOD overdue alerts sent: 0
+2026-08-17 09:31:31 [INFO] ========================================================================================================================
+2026-08-17 09:31:31 [INFO] Run started
+2026-08-17 09:31:31 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 09:31:31 [INFO] --------------------
+2026-08-17 09:31:31 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 09:31:31 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 09:31:31 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 09:31:31 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 09:31:31 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 09:31:31 [INFO] --------------------
+2026-08-17 09:31:31 [INFO] Refreshing Outlook...
+2026-08-17 09:31:31 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 09:31:31 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 09:31:33 [INFO] Refresh Complete.
+2026-08-17 09:32:33 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 09:32:34 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 09:32:34 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 09:32:34 [INFO] [conv 7975BDA00A58...] -> resolve-thank-you draft (was open, now resolved)
+2026-08-17 09:32:34 [INFO] Draft created for 'Re: Test12: Testing Escalation 1'
+2026-08-17 09:32:34 [INFO] [conv 686E9912ED20...] -> resolve-thank-you draft (was open, now resolved)
+2026-08-17 09:32:35 [INFO] Draft created for 'Re: test13: Testing the HOD escalation of To & Fro'
+2026-08-17 09:32:35 [INFO] No conversations to write.
+2026-08-17 09:32:36 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 09:32:36 [INFO] Follow-up nudge sent to pemailautomation@gmail.com for 'Re: Test12: Testing Escalation 1'
+2026-08-17 09:32:36 [INFO] Follow-up nudge sent to launchtv01012001@gmail.com for 'test13: Testing the HOD escalation of To & Fro'
+2026-08-17 09:32:36 [INFO] Follow-up nudges sent: 2
+2026-08-17 09:32:36 [INFO] HOD overdue alerts sent: 0
+2026-08-17 09:36:45 [INFO] ========================================================================================================================
+2026-08-17 09:36:45 [INFO] Run started
+2026-08-17 09:36:45 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 09:36:45 [INFO] --------------------
+2026-08-17 09:36:45 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 09:36:45 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 09:36:45 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 09:36:45 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 09:36:45 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 09:36:45 [INFO] --------------------
+2026-08-17 09:36:45 [INFO] Refreshing Outlook...
+2026-08-17 09:36:45 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 09:36:45 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 09:36:47 [INFO] Refresh Complete.
+2026-08-17 09:37:06 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 09:37:06 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 09:37:06 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=0 | distinct conversations=0
+2026-08-17 09:37:06 [INFO] No conversations to write.
+2026-08-17 09:37:06 [INFO] No conversations to write.
+2026-08-17 09:37:06 [INFO] Follow-up nudges sent: 0
+2026-08-17 09:37:06 [INFO] HOD overdue alerts sent: 0
+2026-08-17 10:01:15 [INFO] ========================================================================================================================
+2026-08-17 10:01:15 [INFO] Run started
+2026-08-17 10:01:15 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 10:01:15 [INFO] --------------------
+2026-08-17 10:01:15 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 10:01:15 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 10:01:15 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 10:01:15 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 10:01:15 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 10:01:15 [INFO] --------------------
+2026-08-17 10:01:15 [INFO] Refreshing Outlook...
+2026-08-17 10:01:15 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 10:01:15 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 10:01:17 [INFO] Refresh Complete.
+2026-08-17 10:02:13 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 10:02:14 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 10:02:14 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 10:02:15 [INFO] No conversations to write.
+2026-08-17 10:02:16 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 10:02:16 [INFO] Follow-up nudges sent: 0
+2026-08-17 10:02:16 [INFO] HOD overdue alerts sent: 0
+2026-08-17 11:49:50 [INFO] ========================================================================================================================
+2026-08-17 11:49:50 [INFO] Run started
+2026-08-17 11:49:50 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 11:49:50 [INFO] --------------------
+2026-08-17 11:49:50 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 11:49:50 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 11:49:50 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 11:49:50 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 11:49:50 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 11:49:50 [INFO] --------------------
+2026-08-17 11:49:50 [INFO] Refreshing Outlook...
+2026-08-17 11:49:50 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 11:49:50 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 11:49:52 [INFO] Refresh Complete.
+2026-08-17 11:50:18 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 11:50:18 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 11:50:18 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 11:50:18 [INFO] No conversations to write.
+2026-08-17 11:50:19 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 11:50:19 [INFO] Follow-up nudges sent: 0
+2026-08-17 11:50:19 [INFO] HOD overdue alerts sent: 0
+2026-08-17 11:51:15 [INFO] ========================================================================================================================
+2026-08-17 11:51:15 [INFO] Run started
+2026-08-17 11:51:15 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 11:51:15 [INFO] --------------------
+2026-08-17 11:51:15 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 11:51:15 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 11:51:15 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 11:51:15 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 11:51:15 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 11:51:15 [INFO] --------------------
+2026-08-17 11:51:15 [INFO] Refreshing Outlook...
+2026-08-17 11:51:15 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 11:51:15 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 11:51:17 [INFO] Refresh Complete.
+2026-08-17 11:51:42 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 11:51:42 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 11:51:42 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 11:51:43 [INFO] No conversations to write.
+2026-08-17 11:51:43 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 11:51:43 [INFO] Follow-up nudges sent: 0
+2026-08-17 11:51:43 [INFO] HOD overdue alerts sent: 0
+2026-08-17 11:52:56 [INFO] ========================================================================================================================
+2026-08-17 11:52:56 [INFO] Run started
+2026-08-17 11:52:56 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 11:52:56 [INFO] --------------------
+2026-08-17 11:52:56 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 11:52:56 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 11:52:56 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 11:52:56 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 11:52:56 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 11:52:56 [INFO] --------------------
+2026-08-17 11:52:56 [INFO] Refreshing Outlook...
+2026-08-17 11:52:56 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 11:52:56 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 11:52:58 [INFO] Refresh Complete.
+2026-08-17 11:53:21 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 11:53:21 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 11:53:21 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 11:53:22 [INFO] No conversations to write.
+2026-08-17 11:53:22 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 11:53:22 [INFO] Follow-up nudges sent: 0
+2026-08-17 11:53:22 [INFO] HOD overdue alerts sent: 0
+2026-08-17 12:10:16 [INFO] ========================================================================================================================
+2026-08-17 12:10:16 [INFO] Run started
+2026-08-17 12:10:16 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 12:10:16 [INFO] --------------------
+2026-08-17 12:10:16 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 12:10:16 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 12:10:16 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 12:10:16 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 12:10:16 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 12:10:16 [INFO] --------------------
+2026-08-17 12:10:16 [INFO] Refreshing Outlook...
+2026-08-17 12:10:16 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 12:10:16 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 12:10:18 [INFO] Refresh Complete.
+2026-08-17 12:10:45 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 12:10:45 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 12:10:45 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 12:11:16 [INFO] ========================================================================================================================
+2026-08-17 12:11:16 [INFO] Run started
+2026-08-17 12:11:16 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 12:11:16 [INFO] --------------------
+2026-08-17 12:11:16 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 12:11:16 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 12:11:16 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 12:11:16 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 12:11:16 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 12:11:16 [INFO] --------------------
+2026-08-17 12:11:16 [INFO] Refreshing Outlook...
+2026-08-17 12:11:16 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 12:11:16 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 12:11:18 [INFO] Refresh Complete.
+2026-08-17 12:11:42 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 12:11:43 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 12:11:43 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 12:11:43 [INFO] No conversations to write.
+2026-08-17 12:11:43 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 12:11:43 [INFO] Follow-up nudges sent: 0
+2026-08-17 12:11:43 [INFO] HOD overdue alerts sent: 0
+2026-08-17 12:15:06 [INFO] ========================================================================================================================
+2026-08-17 12:15:06 [INFO] Run started
+2026-08-17 12:15:06 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 12:15:06 [INFO] --------------------
+2026-08-17 12:15:06 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 12:15:06 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 12:15:06 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 12:15:06 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 12:15:06 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 12:15:06 [INFO] --------------------
+2026-08-17 12:15:06 [INFO] Refreshing Outlook...
+2026-08-17 12:15:06 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 12:15:06 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 12:15:08 [INFO] Refresh Complete.
+2026-08-17 12:15:32 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 12:15:32 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 12:15:33 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 12:15:33 [INFO] No conversations to write.
+2026-08-17 12:15:33 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 12:15:33 [INFO] Follow-up nudges sent: 0
+2026-08-17 12:15:33 [INFO] HOD overdue alerts sent: 0
+2026-08-17 12:17:57 [INFO] ========================================================================================================================
+2026-08-17 12:17:57 [INFO] Run started
+2026-08-17 12:17:57 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 12:17:57 [INFO] --------------------
+2026-08-17 12:17:57 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 12:17:57 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 12:17:57 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 12:17:57 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 12:17:57 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 12:17:57 [INFO] --------------------
+2026-08-17 12:17:57 [INFO] Refreshing Outlook...
+2026-08-17 12:17:57 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 12:17:57 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 12:17:59 [INFO] Refresh Complete.
+2026-08-17 12:18:23 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 12:18:23 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 12:18:23 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 12:18:23 [INFO] No conversations to write.
+2026-08-17 12:18:24 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 12:18:24 [INFO] Follow-up nudges sent: 0
+2026-08-17 12:18:24 [INFO] HOD overdue alerts sent: 0
+2026-08-17 12:24:12 [INFO] ========================================================================================================================
+2026-08-17 12:24:12 [INFO] Run started
+2026-08-17 12:24:12 [INFO] All Spam/Junk emails moved to Inbox.
+2026-08-17 12:24:12 [INFO] --------------------
+2026-08-17 12:24:12 [INFO] RUN CONFIG  |  Target date: 2026-08-17  (DAYS_OFFSET=0)
+2026-08-17 12:24:12 [INFO] OUTLOOK_FOLDER=Inbox  IS_CUSTOMER_CARE=True
+2026-08-17 12:24:12 [INFO] ESCALATION_THRESHOLD=5  HOD_POPUP_BUSINESS_DAYS=2
+2026-08-17 12:24:12 [INFO] FOLLOWUP_DAYS_THRESHOLD=3  DELETE_OLDER_THAN_DAYS=15
+2026-08-17 12:24:12 [INFO] INTERNAL_MAIL_DOMAINS=['abc.com.pk', 'microsft.com.pk']
+2026-08-17 12:24:12 [INFO] --------------------
+2026-08-17 12:24:12 [INFO] Refreshing Outlook...
+2026-08-17 12:24:12 [INFO] Using Email : customer.experience@changan.com.pk
+2026-08-17 12:24:12 [INFO] HOD Email   : k233001@nu.edu.pk
+2026-08-17 12:24:14 [INFO] Refresh Complete.
+2026-08-17 12:24:44 [INFO] Internal mails processed: 0 conversation(s) copied to 'Internal_Mails'
+2026-08-17 12:24:44 [INFO] Reading emails from 'Inbox' for Date : 2026-08-17...
+2026-08-17 12:24:44 [INFO] [extract_conversations] target_date=2026-08-17 | messages scanned=19 | distinct conversations=5
+2026-08-17 12:24:44 [INFO] No conversations to write.
+2026-08-17 12:24:45 [INFO] Exported 16 conversations to 'C:\Users\Abdullahh\OneDrive\Desktop\Anaconda_Project\Email_Automation\FIles\emails_export_last8days_20260817.xlsx' (7 exchange pair(s) wide)
+2026-08-17 12:24:45 [INFO] Follow-up nudges sent: 0
+2026-08-17 12:24:45 [INFO] HOD overdue alerts sent: 0

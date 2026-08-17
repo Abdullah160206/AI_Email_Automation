@@ -85,6 +85,7 @@ import os
 import re
 import time
 from datetime import datetime, timedelta
+import win32com.client
 
 import openpyxl
 import win32com.client
@@ -183,27 +184,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger("email_automation")
 
-
-
-
-
-
-def get_target_date():
-    return (datetime.now() - timedelta(days=DAYS_OFFSET))
-
-def add_business_days(start_dt, n):
-    """Adds n WEEKDAY days to start_dt, keeping the same time-of-day,
-    skipping Sat/Sun entirely. e.g. Monday 10:00 AM + 2 -> Wednesday
-    10:00 AM. Friday 10:00 AM + 2 -> Tuesday 10:00 AM (Sat/Sun skipped)."""
-    current = start_dt
-    added = 0
-    while added < n:
-        current += timedelta(days=1)
-        if current.weekday() < 5:  # Mon=0 ... Fri=4
-            added += 1
-    return current
-
-
 # Category tag used to persist "this conversation has been resolved" on
 # the actual Outlook item (Categories field), so the closed state
 # survives across runs/days without needing an external database.
@@ -212,25 +192,9 @@ RESOLVED_CATEGORY_TAG = "ResolvedConversation"
 HOD_POPUP_TAG_PREFIX = "HodPopupSent|"
 
 
-def build_hod_popup_sent_map(outlook_namespace):
-    """conv_id -> set of customer-message-timestamp strings that already
-    triggered an overdue alert, so the same unanswered message doesn't
-    re-alert HOD every single run."""
-    sent_folder = outlook_namespace.GetDefaultFolder(5)  # Sent Items
-    popup_map = {}
-    for item in sent_folder.Items:
-        try:
-            if check_outlook_item(item.Class):
-                continue
-            categories = item.Categories or ""
-            if categories.startswith(HOD_POPUP_TAG_PREFIX):
-                parts = categories.split("|")
-                if len(parts) == 3:
-                    _, conv_id, ts = parts
-                    popup_map.setdefault(conv_id, set()).add(ts)
-        except Exception:
-            continue
-    return popup_map
+
+
+
 
 # --- Rule-based complaint classification (tuned for a motor company) ---
 # NOTE: "safety" intentionally does NOT include generic urgency words
@@ -351,6 +315,45 @@ CONTRAST_WORDS = ["but ", " but,", "however", "although", "even though", "except
 QUOTE_MARKERS = ["-----Original Message-----", "\nFrom:", "\r\nFrom:", "\nOn ", "\r\nOn "]
 
 
+
+def get_target_date():
+    return (datetime.now() - timedelta(days=DAYS_OFFSET))
+
+def add_business_days(start_dt, n):
+    """Adds n WEEKDAY days to start_dt, keeping the same time-of-day,
+    skipping Sat/Sun entirely. e.g. Monday 10:00 AM + 2 -> Wednesday
+    10:00 AM. Friday 10:00 AM + 2 -> Tuesday 10:00 AM (Sat/Sun skipped)."""
+    current = start_dt
+    added = 0
+    while added < n:
+        current += timedelta(days=1)
+        if current.weekday() < 5:  # Mon=0 ... Fri=4
+            added += 1
+    return current
+
+
+def build_hod_popup_sent_map(outlook_namespace):
+    """conv_id -> set of customer-message-timestamp strings that already
+    triggered an overdue alert, so the same unanswered message doesn't
+    re-alert HOD every single run."""
+    sent_folder = outlook_namespace.GetDefaultFolder(5)  # Sent Items
+    popup_map = {}
+    for item in sent_folder.Items:
+        try:
+            if check_outlook_item(item.Class):
+                continue
+            categories = item.Categories or ""
+            if categories.startswith(HOD_POPUP_TAG_PREFIX):
+                parts = categories.split("|")
+                if len(parts) == 3:
+                    _, conv_id, ts = parts
+                    popup_map.setdefault(conv_id, set()).add(ts)
+        except Exception:
+            continue
+    return popup_map
+
+
+
 def refresh_outlook():
     outlook = win32com.client.Dispatch("Outlook.Application")
     namespace = outlook.GetNamespace("MAPI")
@@ -361,9 +364,7 @@ def refresh_outlook():
     namespace.SendAndReceive(True)
     time.sleep(2)
     logger.info("Refresh Complete.")
-
-
-import win32com.client
+    
 
 
 def move_all_spam_to_inbox():
@@ -1320,6 +1321,7 @@ def extract_conversations(folder, date_folder_cache, all_date_folders, sent_map,
 
             conv_id = msg.ConversationID
             if not conv_id:
+                logger.warning(f"Skipped '{msg.Subject}' from {get_sender_email(msg)} - no ConversationID")
                 continue
 
             conversations.setdefault(conv_id, {"messages": [], "receiving_times": []})
@@ -1875,6 +1877,7 @@ def check_and_send_followup_nudges(folder, customer_map, sent_map, followup_sent
     return sent_count
 
 
+
 if __name__ == "__main__":
     logger.info("=" * 120)
     logger.info("Run started")
@@ -1953,9 +1956,8 @@ if __name__ == "__main__":
         delete_old_date_folders(folder, days=DELETE_OLDER_THAN_DAYS)
 
     if IS_CUSTOMER_CARE:
+
         check_and_send_followup_nudges(folder, customer_map, sent_map, followup_sent_map)
         check_and_notify_hod_overdue(folder, customer_map, sent_map, hod_popup_sent_map)
 
     print("Code Run Successfully Check Log & Excel File")
-
-    
